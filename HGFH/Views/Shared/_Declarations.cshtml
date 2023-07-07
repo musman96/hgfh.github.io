@@ -1,0 +1,27 @@
+﻿@model HGFH.Models.IndexViewModel
+<section class="ftco-bible-study">
+    <div class="container-wrap">
+        <div class="col-md-12 wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 d-md-flex">
+                        <div class="one-half ftco-animate" style="text-align:center;">
+                            <h3> @DateTime.Now.Year Declaration</h3>
+                            <p>@Model.YearlyDeclarationBlog.Title</p>
+                            <div class="button" style="position:relative; margin:auto;">
+                                <p><a asp-controller="Blogs" asp-action="Details" asp-route-id="@Model.YearlyDeclarationBlog.Id" class="btn btn-primary p-3">More Details</a></p>
+                            </div>
+                        </div>
+                        <div class="one-half ftco-animate" style="text-align:center;">
+                            <h3>Declaration of the month</h3>
+                            <p>@Model.MonthylDeclarationBlog.Title</p>
+                            <div class="button" style="position:relative; margin:auto;">
+                                <p><a asp-controller="Blogs" asp-action="Details" asp-route-id="@Model.MonthylDeclarationBlog.Id" class="btn btn-primary p-3">More Details</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

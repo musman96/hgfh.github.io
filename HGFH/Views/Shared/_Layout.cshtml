@@ -1,0 +1,227 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Holy Ghost Fire House</title>
+    <meta name="description" content="Holy Ghost Fire House, led by Bishop Alex and Rev. Monica Mwami" />
+    <meta name="author" content="Bishop Alex Mwami" />
+    <meta name="author" content="Reverend Monica Mwami" />
+    <meta property="og:title" content="ministries | holyghostfire | hgfh | Holy Ghost Fire House" />
+    <meta property="og:url" content="https://hgfh.org" />
+    <meta property="og:site_name" content="holyghostfire | Holy Ghost Fire House" />
+    <meta property="og:type" content="website" />
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800" rel="stylesheet">
+    <link rel="shortcut icon" href="~/HGFH icon.ico" />
+
+    <link rel="stylesheet" href="~/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/animate.css">
+
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="~/css/aos.css">
+
+    <link rel="stylesheet" href="~/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="~/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/css/jquery.timepicker.css">
+
+    <link rel="stylesheet" href="~/css/flaticon.css">
+    <link rel="stylesheet" href="~/css/icomoon.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link href="~/lib/summernote/summernote-bs4.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+            <div class="container">
+                @*<a class="navbar-brand" asp-controller="Home" asp-action="Index"><i class="flaticon-cross"></i> <span>Wisdom</span> <span>Church</span></a>*@
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                    <i><img src="~/HGFH logo2.png" style="width:50px; height:50px;" /></i>
+                    <span style="padding-left:20px;">Holy Ghost</span>
+                    <span style="padding-left:20px;">Fire House</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="oi oi-menu"></span> Menu
+                </button>
+
+                <div class="collapse navbar-collapse" id="ftco-nav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active"><a asp-controller="Home" asp-action="Index" class="nav-link">Home</a></li>
+                        <li class="nav-item">
+                            <a asp-controller="Home" asp-action="About" class="nav-link">About</a>
+                            <div class="dropdown show">
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" asp-controller="Branches" asp-action="HQ">Our History</a>
+                                    <a class="dropdown-item" asp-controller="Branches" asp-action="Pretoria">Pretoria</a>
+                                    <a class="dropdown-item" asp-controller="Branches" asp-action="Bushbuckridge">Bushbuckridge</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="dropdown show">
+                                <a asp-controller="Home" asp-action="Branches" class="nav-link dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Branches</a>
+
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" asp-controller="Branches" asp-action="HQ">HQ</a>
+                                    <a class="dropdown-item" asp-controller="Branches" asp-action="Pretoria">Pretoria</a>
+                                    <a class="dropdown-item" asp-controller="Branches" asp-action="Bushbuckridge">Bushbuckridge</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a asp-controller="Sermons" asp-action="Index" class="nav-link">Sermons</a></li>
+                        <li class="nav-item"><a asp-controller="Blogs" asp-action="Index" class="nav-link">Blog</a></li>
+                        <li class="nav-item"><a asp-controller="Home" asp-action="ContactUs" class="nav-link">Contact</a></li>
+                        <li class="nav-item"><a href="http://www.shop.hgfh.org" target="_blank" class="nav-link">Shop</a></li>
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item">
+                                <div class="dropdown show">
+                                    <a asp-controller="Home" asp-action="Branches" class="nav-link dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hi @User.Identity.Name</a>
+
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <a class="dropdown-item" asp-controller="Blogs" asp-action="Create">Create Blog Post</a>
+                                        <a class="dropdown-item" asp-controller="Sermons" asp-action="Create">Create Sermon</a>
+                                        <a class="dropdown-item" asp-controller="Authors" asp-action="Index">Manage Authors</a>
+                                        <a class="dropdown-item" asp-controller="Categories" asp-action="Index">Manage Categories</a>
+                                        <a class="dropdown-item" asp-controller="Roles" asp-action="Index">Manage Roles</a>
+                                        <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Manage Account</a>
+                                        <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">Log Out</a>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item"><a asp-area="Identity" asp-page="/Account/Login" class="nav-link">Login</a></li>
+                        }
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        @*<main role="main" class="pb-3">*@
+            @RenderBody()
+        @*</main>*@
+    </div>
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4" style="text-align: center;">
+                        <div>
+                            <i><img src="~/HGFH logo2.png" style="width:50px; height:50px;" /></i>
+                            <span style="padding-left:20px; color:#FFF;">Holy Ghost</span>
+                            <span style="padding-left:20px; color:#FFF;">Fire House</span>
+                        </div>
+                        <p>A centre for total deliverance for all</p>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4 ml-md-5">
+                        <h2 class="ftco-heading-2">Quick Links</h2>
+                        <ul class="list-unstyled">
+                            <li class="nav-item active"><a asp-controller="Home" asp-action="Index" class="nav-link">Home</a></li>
+                            <li class="nav-item"><a asp-controller="Home" asp-action="About" class="nav-link">About</a></li>
+                            @*<li class="nav-item"><a asp-controller="Home" asp-action="Branches" class="nav-link">Branches</a></li>*@
+                            <li class="nav-item"><a asp-controller="Home" asp-action="Sermons" class="nav-link">Sermons</a></li>
+                            <li class="nav-item"><a asp-controller="Blogs" asp-action="Index" class="nav-link">Blog</a></li>
+                            <li class="nav-item"><a asp-controller="Home" asp-action="ContactUs" class="nav-link">Contact</a></li>
+                            <li class="nav-item"><a asp-controller="Home" asp-action="ContactUs" class="nav-link">Shop</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Contact Information</h2>
+                        <ul class="list-unstyle">
+                            <li class="py-2 d-block" style="color: rgba(255, 255, 255, 0.7);"><span class="icon icon-map-marker"></span><span class="text"> 12 Samora Machel Drive, Nelspruit, Mbombela</span></li>
+                            <li class="py-2 d-block" style="color: rgba(255, 255, 255, 0.7);"><span class="icon icon-phone"></span><span class="text"> (+27) 13 752 2076</span></li>
+                            <li class="py-2 d-block" style="color: rgba(255, 255, 255, 0.7);"><span class="icon icon-envelope"></span><span class="text"> info@hgfh.org</span></li>
+                            <li class="py-2 d-block" style="color: rgba(255, 255, 255, 0.7);"><span class="icon icon-clock-o"></span><span class="text"> Saturday &mdash; Sunday 8:00am - 5:00pm</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        @*<div class="block-23 mb-3">
+                                <ul>
+                                    <li><span class="icon icon-map-marker"></span><span class="text">12 Samora Machel Drive, Nelspruit, Mbombela</span></li>
+                                    <li><a href="#"><span class="icon icon-phone"></span><span class="text">(+27) 13 752 2076</span></a></li>
+                                    <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@hgfh.org</span></a></li>
+                                    <li><span class="icon icon-clock-o"></span><span class="text">Saturday &mdash; Sunday 8:00am - 5:00pm</span></li>
+                                </ul>
+                            </div>*@
+                        <h2 class="ftco-heading-2">Social Media</h2>
+                        <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
+                            <li class="ftco-animate"><a href="https://www.instagram.com/hgfh_sa"><span class="icon-instagram"></span></a></li>
+                            <li class="ftco-animate"><a href="https://facebook.com/Holyghostfirehouse.sa"><span class="icon-facebook"></span></a></li>
+                            <li class="ftco-animate"><a href="https://www.youtube.com/channel/UChqDFewMXjTcYrc67mIDrcA"><span class="icon-youtube"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+
+                    <p>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;
+                        @DateTime.Now.Year;All rights reserved |Holy Ghost Fire House | Designed by Grace Technologies</a>
+                        @*@DateTime.Now.Year;All rights reserved |Holy Ghost Fire House | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>*@
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/jquery.easing.1.3.js"></script>
+    <script src="~/js/jquery.waypoints.min.js"></script>
+    <script src="~/js/jquery.stellar.min.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/js/aos.js"></script>
+    <script src="~/js/jquery.animateNumber.min.js"></script>
+    <script src="~/js/bootstrap-datepicker.js"></script>
+    <script src="~/js/jquery.timepicker.min.js"></script>
+    <script src="~/js/jquery.mb.YTPlayer.min.js"></script>
+    <script src="~/js/scrollax.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHsx_48eD4y3JPgrRoFDd0jq4UbOzQThg&sensor=false"></script>
+    <script src="~/js/google-map.js"></script>
+    <script src="~/js/main.js"></script>
+    @*<script src="~/js/site.js" asp-append-version="true"></script>*@
+
+    <!-- include summernote css/js -->
+    <script src="~/lib/summernote/summernote-bs4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#summernote').summernote(
+                {
+                    placeholder: 'Enter content here',
+                    tabsize: 2,
+                    height: 100
+            });
+        });
+    </script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

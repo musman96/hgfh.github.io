@@ -1,0 +1,62 @@
+﻿@model HGFH.Models.IndexViewModel
+@{
+    ViewData["Title"] = "History";
+}
+
+<section class="ftco-bible-study">
+    <div class="container-wrap">
+        <div class="col-md-12 wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 d-md-flex">
+                        <div class="one-half ftco-animate" style="text-align:center;">
+                            <h3> @DateTime.Now.Year Declaration</h3>
+                            <p>@Model.YearlyDeclarationBlog.Title</p>
+                            <div class="button" style="position:relative; margin:auto;">
+                                <p><a asp-controller="Blogs" asp-action="Details" asp-route-id="@Model.YearlyDeclarationBlog.Id" class="btn btn-primary p-3">More Details</a></p>
+                            </div>
+                        </div>
+                        <div class="one-half ftco-animate" style="text-align:center;">
+                            <h3>Declaration of the month</h3>
+                            <p>@Model.MonthylDeclarationBlog.Title</p>
+                            <div class="button" style="position:relative; margin:auto;">
+                                <p><a asp-controller="Blogs" asp-action="Details" asp-route-id="@Model.MonthylDeclarationBlog.Id" class="btn btn-primary p-3">More Details</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="ftco-section ftco-section-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="col-md-8 ftco-animate">
+                    <h2 class="mb-3">Our History</h2>
+
+
+                    <p>We want to welcome you to Holy Ghost Fire House. A Place where Jesus is Lord! You are invited to worship with us each and every time we meet. We worship God the Father, the Son and the Holy Ghost; the one only true living God.</p>
+                    <p>Holy Ghost Fire House started in 2002 in the backyard of Bishop Alex in a small town called Thulamahashe after he resigned from Apostolic Church Missions where he served the church for four years, during the time he planted 6 six churches under them. The Begining of Devoted Ambassadors For Christ Ministries was very challenging as the founder had no resources to carry the mission. It was during this time the founder was taught how to trust God. Today the ministry had grown into 38 branches known as Holy Ghost Fire House in three nations namely South Africa, Zambia and Congo DRC with its international Headquarters in Nelspruit- South Africa.</p>
+                    <p>Holy Ghost Fire House is an interdenominational church focused on uniting people in the family of God. The people have genuine intentions of developing a real and lusting relationship with God and with each other. It is our desire to seek God with all our hearts, and see His glory manifest in our community and nation. It is our go to build His Kingdom by encouraging other people to surrender their lives to Him. We are Ernest about our praise and worship for it leads into Holy of Holies, right into the throne room of Jehovah. We do this enthusiastically, and encourage you to join in with us and enjoy a special time of praise and worship</p>
+                    <p>We believe the Holy Bible is infallible Word of God. We believe the Bible is the road map set before us to follow. The teaching and preaching in our church is for building up of the body of Christ which we are only a part. We strongly believe in the ministry of prayer through the Holy Spirit and deliverance by the Word of God. We encourage the fivefold ministry and the demonstration power of the Holy Spirit. We are therefore a Spirit lead church and Bible based church.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

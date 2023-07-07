@@ -1,0 +1,50 @@
+﻿@model HGFH.Models.UserRoleViewModel
+@{
+    ViewData["Title"] = "Create";
+    var roles = (List<Microsoft.AspNetCore.Identity.IdentityRole>)ViewData["roles"];
+    var users = (List<ApplicationUser>)ViewData["users"];
+}
+<section id="home" class="video-hero js-fullheight" style="height: 700px; background-image: url('../images/alter4.jpg');  background-size:cover; background-position: center center;background-attachment:fixed;" data-section="home">
+    <div class="overlay js-fullheight"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+            <div class="col-md-10 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
+                <p class="breadcrumbs mb-2" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a asp-controller="Home" asp-action="Index">Role</a></span> <span>Create</span></p>
+                <h1 class="mb-3 mt-0 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Assign Role</h1>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="ftco-section contact-section ftco-degree-bg">
+    <div class="container bg-light">
+        <div class="row">
+            <div class="col-lg-8" style="margin: auto; position:relative;">
+                <h4>New Blog</h4>
+                <form asp-action="AssignRole" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Username"></label>
+                        <select asp-for="Username" class="form-control" asp-items='new SelectList(users,"UserName","UserName")'>
+                        </select>
+                        <span asp-validation-for="Username" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="RoleName"></label>
+                        <select asp-for="RoleName" class="form-control" asp-items='new SelectList(roles,"Name","Name")'>
+                        </select>
+                        <span asp-validation-for="RoleName" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary py-3 px-5" />
+                        <a asp-action="Index" class="btn btn-primary py-3">Back to List</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+} 

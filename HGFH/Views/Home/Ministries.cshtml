@@ -1,0 +1,121 @@
+﻿@model HGFH.Models.IndexViewModel
+@{
+    ViewData["Title"] = "Events";
+}
+
+<section id="home" class="video-hero js-fullheight" style="height: 700px; background-image: url(images/header.jpg);  background-size:cover; background-position: center center;background-attachment:fixed;" data-section="home">
+    <div class="overlay js-fullheight"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+            <div class="col-md-10 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
+                <p class="breadcrumbs mb-2" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a asp-controller="Home" asp-action="Index">Home</a></span> <span>Ministries</span></p>
+                <h1 class="mb-3 mt-0 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Ministries</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-bible-study">
+    <div class="container-wrap">
+        <div class="col-md-12 wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 d-md-flex">
+                        <div class="one-half ftco-animate" style="text-align:center;">
+                            <h3> @DateTime.Now.Year Declaration</h3>
+                            <p>@Model.YearlyDeclarationBlog.Title</p>
+                            <div class="button" style="position:relative; margin:auto;">
+                                <p><a asp-controller="Blogs" asp-action="Details" asp-route-id="@Model.YearlyDeclarationBlog.Id" class="btn btn-primary p-3">More Details</a></p>
+                            </div>
+                        </div>
+                        <div class="one-half ftco-animate" style="text-align:center;">
+                            <h3>Declaration of the month</h3>
+                            <p>@Model.MonthylDeclarationBlog.Title</p>
+                            <div class="button" style="position:relative; margin:auto;">
+                                <p><a asp-controller="Blogs" asp-action="Details" asp-route-id="@Model.MonthylDeclarationBlog.Id" class="btn btn-primary p-3">More Details</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section ftco-section-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-4 d-flex justify-content-center counter-wrap ftco-animate">
+                <div class="block-18 text-center">
+                    <div class="text">
+                        <strong class="fadeInLeft">MUSIC MINISTRY</strong>
+                        <span>Holy Ghost fire House has a music ministry that believe that music is a door to your inner soul, we worship because it gives us the desire to praise our Lord and saviour Jesus Worship begins in the heart of the believer not on the platform or guitar. Only then can it be expressed outwardly. Worshipers should have a life style of worship before God, worship is private before it is public.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 d-flex justify-content-center counter-wrap ftco-animate">
+                <div class="block-18 text-center">
+                    <div class="text">
+                        <strong class="fadeInLeft">YOUTH MINISTRY</strong>
+                        <span>With an alarming growth of unemployment in our nation. We dare to keep our young people sane through the word of God and other activities that helps them to discover their talent and potential despite the rampancy growth of drug addiction, premature pregnancies. It’s our goal to prepare young people for the great and better tomorrow.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 d-flex justify-content-center counter-wrap ftco-animate">
+                <div class="block-18 text-center">
+                    <div class="text">
+                        <strong class="fadeInLeft">BIBLE COLLEGE</strong>
+                        <span>The college is an interdinominational, Evangelical training center it serves the church of the Lord Jesus Christ and His Kingdom, by equipping men and women in biblical knowledge and ministry expertise for a life of Christian service in order to fulfil the great commission in Africa and the world at large.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-lg-4 d-flex justify-content-center counter-wrap ftco-animate">
+                <div class="block-18 text-center">
+                    <div class="text">
+                        <strong class="fadeInLeft">MENS MINSTRY MAN POWER FELLOWSHIP</strong>
+                        <span>
+                            This fellowship provides a platform for men to mature in their walk with God. It is a fellowship that provides unity among men in the church.
+
+                            We believe that a man (husband) is the priest, prophet and king of the family. Through this fellowship men are becoming more involved in the ministry, more loving to their wives and more caring to their children. They are also developing the deeper longing for God thru His word.
+
+                            1 Timothy 5:8 Governs men’s fellowship.
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 d-flex justify-content-center counter-wrap ftco-animate">
+                <div class="block-18 text-center">
+                    <div class="text">
+                        <strong class="fadeInLeft">WOMEN MINISTRY</strong>
+                        <span>
+                            Culture has displaced many women and caused many of them to believe a lie that they cannot lead or take initiatives.
+
+                            The women ministry encourage women to rediscover their position in society, church and the bible; women are encouraged to become influential in their careers, society, businesses etc, and yet humble and submissive to their husbands and caring to their children.
+
+                            The ratio of women is higher than men on most churches therefore it is imperative to have a powerful women ministry as they are the majority in the church. If you teach women you have taught the church.
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 d-flex justify-content-center counter-wrap ftco-animate">
+                <div class="block-18 text-center">
+                    <div class="text">
+                        <strong class="fadeInLeft">ORPHANAGE (HOUSE OF HOPE)</strong>
+                        <span>
+                            The gospel of Jesus must be tangible, visible and touchable for the people to believe in it. We ha e therefore taken a stand of getting involved in the community by identifying people who are in need and choose to help them as Jesus would do if he was still on earth. Our involvement is through the orphanage called house of hope.
+
+                            House of hope (Orphanage) is situated in Bushbuckridge in a small village called Matenteng Trust. It is a fully built property with 16 rooms which can house/accommodate 64 children.
+
+                            Our Orphanage does not only accommodate orphans but it is also a refugee place for people who lose their properties through natural disasters. It also provides food parcels monthly to the under-privileged and takes full responsibility for orphaned children. The centre also gives counsel to the suicidal, divorced, and widowed and addicts with a view of reconciling them with society. The orphanage is financed by individual Christian, our church and friends; so far we are providing food parcels to 198 families that are registered with us and helpless.
+
+                            We have 37 orphaned children we are taking care of still under the care of foster parents.
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,89 @@
+﻿@model HGFH.Data.Option
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<section id="home" class="video-hero js-fullheight" style="height: 700px;background-image: url(images/alter4.jpg);background-size: cover;background-position: center center;
+    background-attachment: fixed;" data-section="home">
+    <div class="overlay js-fullheight"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+            <div class="col-md-10 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
+                <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Total <strong>Deliverance</strong> For All</h1>
+                <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><a asp-controller="Home" asp-action="About" class="btn btn-primary btn-outline-white px-4 py-3">Find out more</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-bible-study">
+    <div class="container-wrap">
+        <div class="col-md-12 wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 d-md-flex">
+                        <div class="one-half ftco-animate" style="text-align:center;">
+                            <h3>2021 Declaration</h3>
+                            <p>My Year of God's Approval and God's Wisdom</p>
+                            <div class="button" style="position:relative; margin:auto;">
+                                <p><a href="#" class="btn btn-primary p-3">More Details</a></p>
+                            </div>
+                        </div>
+                        <div class="one-half ftco-animate" style="text-align:center;">
+                            <h3>Declaration of the month</h3>
+                            <p>July: Our Month of supernatural promotion</p>
+                            <div class="button" style="position:relative; margin:auto;">
+                                <p><a href="#" class="btn btn-primary p-3">More Details</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<h4>Category Details</h4>
+<hr />
+<section class="ftco-section contact-section ftco-degree-bg">
+    <div class="container bg-light">
+        <div class="row">
+            <div class="col-lg-8" style="margin: auto; position:relative;">
+                <div class="col-md-4">
+                    <form asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="Id" />
+                        <div class="form-group">
+                            <label asp-for="Name" class="control-label"></label>
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Value" class="control-label"></label>
+                            <input asp-for="Value" class="form-control" />
+                            <span asp-validation-for="Value" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="OptionGroupId" class="control-label"></label>
+                            <select asp-for="OptionGroupId" class="form-control" asp-items="ViewBag.OptionGroupId"></select>
+                            <span asp-validation-for="OptionGroupId" class="text-danger"></span>
+                        </div>
+                        <div class="form-group form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" asp-for="IsInactive" /> @Html.DisplayNameFor(model => model.IsInactive)
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Save" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

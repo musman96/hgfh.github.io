@@ -1,0 +1,261 @@
+﻿@model HGFH.Models.IndexViewModel
+@{
+    ViewData["Title"] = "About";
+}
+
+<section id="home" class="video-hero js-fullheight" style="height: 700px; background-image: url('../images/header.jpg');  background-size:cover; background-position: center center;background-attachment:fixed;" data-section="home">
+    <div class="overlay js-fullheight"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+            <div class="col-md-10 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
+                <p class="breadcrumbs mb-2" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a asp-controller="Home" asp-action="Index">Home</a></span> <span>About</span></p>
+                <h1 class="mb-3 mt-0 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">About Us</h1>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="ftco-bible-study">
+    <div class="container-wrap">
+        <div class="col-md-12 wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 d-md-flex">
+                        <div class="one-half ftco-animate" style="text-align:center;">
+                            <h3> @DateTime.Now.Year Declaration</h3>
+                            <p>@Model.YearlyDeclarationBlog.Title</p>
+                            <div class="button" style="position:relative; margin:auto;">
+                                <p><a asp-controller="Blogs" asp-action="Details" asp-route-id="@Model.YearlyDeclarationBlog.Id" class="btn btn-primary p-3">More Details</a></p>
+                            </div>
+                        </div>
+                        <div class="one-half ftco-animate" style="text-align:center;">
+                            <h3>Declaration of the month</h3>
+                            <p>@Model.MonthylDeclarationBlog.Title</p>
+                            <div class="button" style="position:relative; margin:auto;">
+                                <p><a asp-controller="Blogs" asp-action="Details" asp-route-id="@Model.MonthylDeclarationBlog.Id" class="btn btn-primary p-3">More Details</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="ftco-section-2">
+    <div class="container-fluid">
+        <div class="section-2-blocks-wrapper d-flex row no-gutters">
+            <div class="img col-md-6 ftco-animate" style="background-image: url('../images/alter1.jpg');">
+                <a href="https://www.youtube.com/watch?v=jFRYqNKbnoE" class="button popup-vimeo"><span class="ion-ios-play"></span></a>
+            </div>
+            <div class="text col-md-6 ftco-animate">
+                <div class="text-inner align-self-start">
+
+                    <h3>Loving God, Loving Others and Serving the World</h3>
+                    <p>We want to welcome you to Holy Ghost Fire House. A Place where Jesus is Lord! You are invited to worship with us each and every time we meet. We worship God the Father, the Son and the Holy Ghost; the one only true living God.</p>
+
+                    <p>We believe in the saving power of God almighty through Jesus Christ by which we are saved by. Through him we have our redemption and our salvation. It is this that we preach and proclaim that Jesus Christ, crucified, resurrected and seating at the right hand of God is for everyone.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section testimony-section bg-light">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-5">
+            <div class="col-md-7 text-center heading-section ftco-animate">
+                <span class="subheading">Read, Get Inspired, and Share Your Story</span>
+                <h2 class="mb-4">Testimonies</h2>
+                <p>These are some of the words that people have said shared with us about their experience at Holy Ghost Fire House. <br /> We hope they will inspire you and light a fire in your spririt for the Lord Jesus.</p>
+            </div>
+        </div>
+        <div class="row ftco-animate">
+            <div class="col-md-12">
+                <div class="carousel-testimony owl-carousel ftco-owl">
+                    <div class="item text-center">
+                        <div class="testimony-wrap p-4 pb-5">
+                            <div class="user-img mb-4" style="background-image: url('images/person_1.jpg')">
+                                <span class="quote d-flex align-items-center justify-content-center">
+                                    <i class="icon-quote-left"></i>
+                                </span>
+                            </div>
+                            <div class="text">
+                                <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                <p class="name">Dennis Green</p>
+                                <span class="position">Member</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item text-center">
+                        <div class="testimony-wrap p-4 pb-5">
+                            <div class="user-img mb-4" style="background-image: url('images/person_2.jpg')">
+                                <span class="quote d-flex align-items-center justify-content-center">
+                                    <i class="icon-quote-left"></i>
+                                </span>
+                            </div>
+                            <div class="text">
+                                <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                <p class="name">Dennis Green</p>
+                                <span class="position">Volunteer</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item text-center">
+                        <div class="testimony-wrap p-4 pb-5">
+                            <div class="user-img mb-4" style="background-image: url('..images/person_3.jpg')">
+                                <span class="quote d-flex align-items-center justify-content-center">
+                                    <i class="icon-quote-left"></i>
+                                </span>
+                            </div>
+                            <div class="text">
+                                <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                <p class="name">Dennis Green</p>
+                                <span class="position">Pastor</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item text-center">
+                        <div class="testimony-wrap p-4 pb-5">
+                            <div class="user-img mb-4" style="background-image: url('..images/person_1.jpg')">
+                                <span class="quote d-flex align-items-center justify-content-center">
+                                    <i class="icon-quote-left"></i>
+                                </span>
+                            </div>
+                            <div class="text">
+                                <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                <p class="name">Dennis Green</p>
+                                <span class="position">Guest</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item text-center">
+                        <div class="testimony-wrap p-4 pb-5">
+                            <div class="user-img mb-4" style="background-image: url('..images/person_1.jpg');">
+                                <span class="quote d-flex align-items-center justify-content-center">
+                                    <i class="icon-quote-left"></i>
+                                </span>
+                            </div>
+                            <div class="text">
+                                <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                <p class="name">Dennis Green</p>
+                                <span class="position">Pastor</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section ftco-counter" id="section-counter">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-5">
+            <div class="col-md-7 text-center heading-section ftco-animate">
+                <h2>Church Ministries</h2>
+                <p>These are some of the ministries that the church is involved in.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-lg-4 d-flex justify-content-center counter-wrap ftco-animate">
+                <div class="block-18 text-center">
+                    <div class="text">
+                        <strong class="fadeInLeft">MUSIC MINISTRY</strong>
+                        <span>Holy Ghost fire House has a music ministry that believe that music is a door to your inner soul, we worship because it gives us the desire to praise our Lord and saviour Jesus Worship begins in the heart of the believer not on the platform or guitar. Only then can it be expressed outwardly. Worshipers should have a life style of worship before God, worship is private before it is public.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 d-flex justify-content-center counter-wrap ftco-animate">
+                <div class="block-18 text-center">
+                    <div class="text">
+                        <strong class="fadeInLeft">YOUTH MINISTRY</strong>
+                        <span>With an alarming growth of unemployment in our nation. We dare to keep our young people sane through the word of God and other activities that helps them to discover their talent and potential despite the rampancy growth of drug addiction, premature pregnancies. It’s our goal to prepare young people for the great and better tomorrow.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 d-flex justify-content-center counter-wrap ftco-animate">
+                <div class="block-18 text-center">
+                    <div class="text">
+                        <strong class="fadeInLeft">BIBLE COLLEGE</strong>
+                        <span>The college is an interdinominational, Evangelical training center it serves the church of the Lord Jesus Christ and His Kingdom, by equipping men and women in biblical knowledge and ministry expertise for a life of Christian service in order to fulfil the great commission in Africa and the world at large.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col text-center">
+                <p><a asp-action="Ministries" class="btn btn-primary btn-outline-primary p-3">Check Out More Ministries</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section-3 bg-light">
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-md-4 py-5 nav-link-wrap aside-stretch">
+                <div class="nav ftco-animate flex-column nav-pills text-md-right" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link active pr-5" id="v-pills-mission-tab" data-toggle="pill" href="#v-pills-mission" role="tab" aria-controls="v-pills-mission" aria-selected="true">Mission</a>
+
+                    <a class="nav-link pr-5" id="v-pills-vission-tab" data-toggle="pill" href="#v-pills-vission" role="tab" aria-controls="v-pills-vission" aria-selected="false">Vission</a>
+                </div>
+            </div>
+            <div class="col-md-8 pt-5 pb-5 pl-md-5 d-flex align-items-center">
+
+                <div class="tab-content ftco-animate pl-md-5" id="v-pills-tabContent">
+
+                    <div class="tab-pane fade show active" id="v-pills-mission" role="tabpanel" aria-labelledby="v-pills-mission-tab">
+                        <span class="icon mb-3 d-block flaticon-bed"></span>
+                        <h2 class="mb-4">Total deliverance for all</h2>
+                        <p class="lead">The mission of the church is to glorify God by making disciples through the gospel of Jesus Christ. God’s mission and the mission of His Church are inseparably linked</p>
+                    </div>
+
+                    <div class="tab-pane fade" id="v-pills-vission" role="tabpanel" aria-labelledby="v-pills-vission-tab">
+                        <span class="icon mb-3 d-block flaticon-tray"></span>
+                        <h2 class="mb-4">A world free from bondage</h2>
+                        <p>There is one God, who exists eternally in a fellowship of three distinct and equal persons: Father, Son, and Holy Spirit who are unchangeable in their holiness, justice, wisdom and love.</p>
+                        @*<p><a href="#" class="btn btn-primary">Learn More</a></p>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-5">
+            <div class="col-md-7 text-center heading-section ftco-animate">
+                <h2>Our Pastors</h2>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 ftco-animate">
+                <div class="block-10 d-md-flex align-items-center">
+                    @*<div class="img" style="background-image: url('../../wwwroot/images/bishA.jpg');"></div>*@
+                    <div class="img"><img class="img" src="~/images/bishA.jpg"></div>
+                    <div class="person-info pl-md-3">
+                        <span class="name">Bishop Alex Mwami</span>
+                        <span class="position">General Overseer</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 ftco-animate">
+                <div class="block-10 d-md-flex align-items-center">
+                    <div class="img"><img class="img" src="~/images/revMo.jpg"></div>
+                    @*<div class="img" style="background-image: url(../../wwwroot/images/revMo.jpg);"></div>*@
+                    <div class="person-info pl-md-3">
+                        <span class="name">Reverend Monica Mwami</span>
+                        <span class="position">Resident Pastor</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@*<script>
+    $(function () {
+        $("p:first").addClass("intro");
+    });
+</script>*@

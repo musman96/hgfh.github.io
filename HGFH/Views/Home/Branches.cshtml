@@ -1,0 +1,133 @@
+﻿@model HGFH.Models.IndexViewModel
+@{
+    ViewData["Title"] = "Branches";
+}
+
+<section id="home" class="video-hero js-fullheight" style="height: 700px; background-image: url('../images/alter4.jpg');  background-size:cover; background-position: center center;background-attachment:fixed;" data-section="home">
+    <div class="overlay js-fullheight"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+            <div class="col-md-10 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
+                <p class="breadcrumbs mb-2" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a asp-controller="Home" asp-action="Index">Home</a></span> <span>Events</span></p>
+                <h1 class="mb-3 mt-0 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Branches</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-bible-study">
+    <div class="container-wrap">
+        <div class="col-md-12 wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 d-md-flex">
+                        <div class="one-half ftco-animate" style="text-align:center;">
+                            <h3> @DateTime.Now.Year Declaration</h3>
+                            <p>@Model.YearlyDeclarationBlog.Title</p>
+                            <div class="button" style="position:relative; margin:auto;">
+                                <p><a asp-controller="Blogs" asp-action="Details" asp-route-id="@Model.YearlyDeclarationBlog.Id" class="btn btn-primary p-3">More Details</a></p>
+                            </div>
+                        </div>
+                        <div class="one-half ftco-animate" style="text-align:center;">
+                            <h3>Declaration of the month</h3>
+                            <p>@Model.MonthylDeclarationBlog.Title</p>
+                            <div class="button" style="position:relative; margin:auto;">
+                                <p><a asp-controller="Blogs" asp-action="Details" asp-route-id="@Model.MonthylDeclarationBlog.Id" class="btn btn-primary p-3">More Details</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section ftco-section-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="event-entry d-flex ftco-animate">
+                    <div class="meta mr-4">
+                        <p>
+                            <span>Since</span>
+                            <span>Jun 2010</span>
+                        </p>
+                    </div>
+                    <div class="text">
+                        <h3 class="mb-2"><a href="#">Holy Ghost Fire House Head Quarters</a></h3>
+                        <p class="mb-4"><span>8:00am at 12 Samora Machel Drive Nelspruit, Mbombela</span></p>
+                        <a href="#" class="img mb-4" style="background-image: url(images/event-1.jpg);"><iframe width="420" height="250" style="border:0" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJFcP1owNK6B4REAizNntWTj0&key=AIzaSyCHsx_48eD4y3JPgrRoFDd0jq4UbOzQThg"></iframe></a>
+                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                    </div>
+                    @*<div class="button">
+                            <p><a asp-controller="Branches" asp-action="HQ" class="btn btn-primary p-3">More Details</a></p>
+                        </div>*@
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="event-entry d-flex ftco-animate">
+                    <div class="meta mr-4">
+                        <p>
+                            <span>Since</span>
+                            <span>Jun 2018</span>
+                        </p>
+                    </div>
+                    <div class="text">
+                        <h3 class="mb-2"><a href="#">Holy Ghost Fire House Head Pretoria</a></h3>
+                        <p class="mb-4"><span>9:00am at 332 Nana Sita St, Pretoria Central, Pretoria, 0002</span></p>
+                        <a href="#" class="img mb-4" style="background-image: url(images/event-1.jpg);"><iframe width="420" height="250" style="border:0" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJZVxiJGxjlR4RbU2-2i7-LsY&key=AIzaSyCHsx_48eD4y3JPgrRoFDd0jq4UbOzQThg" "></iframe></a>
+                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="event-entry d-flex ftco-animate">
+                    <div class="meta mr-4">
+                        <p>
+                            <span>Since</span>
+                            <span>Jun 2010</span>
+                        </p>
+                    </div>
+                    <div class="text">
+                        <h3 class="mb-2"><a href="#">Holy Ghost Fire House Head Quarters</a></h3>
+                        <p class="mb-4"><span>8:00am at 12 Samora Machel Drive Nelspruit, Mbombela</span></p>
+                        <a href="#" class="img mb-4" style="background-image: url(images/event-1.jpg);"><iframe width="420" height="250" style="border:0" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJFcP1owNK6B4REAizNntWTj0&key=AIzaSyCHsx_48eD4y3JPgrRoFDd0jq4UbOzQThg"></iframe></a>
+                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="event-entry d-flex ftco-animate">
+                    <div class="meta mr-4">
+                        <p>
+                            <span>Since</span>
+                            <span>Jun 2010</span>
+                        </p>
+                    </div>
+                    <div class="text">
+                        <h3 class="mb-2"><a href="#">Holy Ghost Fire House Head Quarters</a></h3>
+                        <p class="mb-4"><span>8:00am at 12 Samora Machel Drive Nelspruit, Mbombela</span></p>
+                        <a href="#" class="img mb-4" style="background-image: url(images/event-1.jpg);"><iframe width="420" height="250" style="border:0" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJFcP1owNK6B4REAizNntWTj0&key=AIzaSyCHsx_48eD4y3JPgrRoFDd0jq4UbOzQThg"></iframe></a>
+                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col text-center">
+                <div class="block-27">
+                    <ul>
+                        <li><a href="#">&lt;</a></li>
+                        <li class="active"><span>1</span></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">&gt;</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,179 @@
+﻿@model HGFH.Models.BlogViewModel
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    ViewData["Title"] = "Details";
+}
+<section id="home" class="video-hero js-fullheight" style="height: 700px; background-image: url(../images/bg_1.jpg);  background-size:cover; background-position: center center;background-attachment:fixed;" data-section="home">
+    <div class="overlay js-fullheight"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+            <div class="col-md-10 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
+                <p class="breadcrumbs mb-2" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a asp-controller="Home" asp-action="Index">Home</a></span> <span>Blogs</span></p>
+                <h1 class="mb-3 mt-0 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">@Model.Title</h1>
+            </div>
+        </div>
+    </div>
+</section>
+@*<section class="ftco-bible-study">
+        <div class="container-wrap">
+            <div class="col-md-12 wrap">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 d-md-flex">
+                            <div class="one-half ftco-animate" style="text-align:center;">
+                                <h3> @DateTime.Now.Year Declaration</h3>
+                                <p>@Model.YearlyDeclarationBlog.Title</p>
+                                <div class="button" style="position:relative; margin:auto;">
+                                    <p><a asp-controller="Blogs" asp-action="Details" asp-route-id="@Model.YearlyDeclarationBlog.Id" class="btn btn-primary p-3">More Details</a></p>
+                                </div>
+                            </div>
+                            <div class="one-half ftco-animate" style="text-align:center;">
+                                <h3>Declaration of the month</h3>
+                                <p>@Model.MonthylDeclarationBlog.Title</p>
+                                <div class="button" style="position:relative; margin:auto;">
+                                    <p><a asp-controller="Blogs" asp-action="Details" asp-route-id="@Model.MonthylDeclarationBlog.Id" class="btn btn-primary p-3">More Details</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>*@
+<section class="ftco-section ftco-degree-bg">
+    <div class="container" style="width:70%">
+        <div class="row">
+            <div class="col-md-8 ftco-animate">
+                <h2 class="mb-3"> @Model.Title</h2>
+                <p>@Html.Raw(@Model.Body)</p>
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <div>
+                        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary p-3">Edit</a> |
+                        <a asp-action="Index" class="btn btn-primary btn-outline-primary p-3">Back to List</a>
+                    </div>
+                }
+                <div class="about-author d-flex p-5 bg-light">
+                    <div class="bio align-self-md-center mr-5">
+                        <img src="/Blogs/ThumbnailImage/263871D1-B813-4DDE-A284-C9A431224050" alt="Image placeholder" class="img-fluid mb-4" style="width: 126px;height: auto;">
+                    </div>
+                    <div class="desc align-self-md-center">
+                        <h3>@Model.Author.Name</h3>
+                        <p>@Model.Author.Description</p>
+                    </div>
+                </div>
+                <div class="pt-5 mt-5">
+                    <h3 class="mb-5">@Model.CommentsCount Comments</h3>
+                    <ul class="comment-list">
+                        @foreach (var item in Model.Comments)
+                        {
+                            <li class="comment">
+                                <div class="vcard bio">
+                                    <img src="/Blogs/ThumbnailImage/263871D1-B813-4DDE-A284-C9A431224050" alt="Image placeholder">
+                                </div>
+                                <div class="comment-body">
+                                    <h3>@item.Name</h3>
+                                    <div class="meta">@item.CreatedOn.ToString("MMMM dd, yyyy") at @item.CreatedOn.ToString("HH:mm:ss tt")</div>
+                                    <p>@item.Body</p>
+                                    <p><a href="#" class="reply">Reply</a></p>
+                                </div>
+                                @foreach (var sub in Model.SubComments)
+                                {
+                                    <ul class="children">
+                                        <li class="comment">
+                                            <div class="vcard bio">
+                                                <img src="../images/default-user.jpg" alt="Image placeholder">
+                                            </div>
+                                            <div class="comment-body">
+                                                <h3>@sub.Name</h3>
+                                                <div class="meta">@sub.CreatedOn.ToString("MMMM dd, yyyy") at @sub.CreatedOn.ToString("HH:mm:ss tt")</div>
+                                                <p>@sub.Body</p>
+                                                <p><a href="#" class="reply">Reply</a></p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                }
+
+                            </li>
+                        }
+
+
+
+                    </ul>
+                    <!-- END comment-list -->
+
+                    <div class="comment-form-wrap pt-5">
+                        <h3 class="mb-5">Leave a comment</h3>
+                        <form asp-action="AddComment" asp-ro class="p-5 bg-light">
+                            <input type="hidden" asp-for="Id" />
+                            <div class="form-group">
+                                <label asp-for="Comment.Name">Name *</label>
+                                <input asp-for="Comment.Name" type="text" class="form-control" id="name">
+                            </div>
+                            @*<div class="form-group">
+                                    <label for="email">Email *</label>
+                                    <input asp-for="Comment." type="email" class="form-control" id="email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="website">Website</label>
+                                    <input type="url" class="form-control" id="website">
+                                </div>*@
+
+                            <div class="form-group">
+                                <label asp-for="Comment.Body">Message</label>
+                                <textarea asp-for="Comment.Body" cols="30" rows="10" class="form-control"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Post Comment" class="btn py-3 px-4 btn-primary">
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 sidebar ftco-animate order-first">
+                <div class="sidebar-box">
+                    <form action="#" class="search-form">
+                        <div class="form-group">
+                            <span class="icon fa fa-search"></span>
+                            <input type="text" class="form-control" placeholder="Type a keyword and hit enter">
+                        </div>
+                    </form>
+                </div>
+                <div class="sidebar-box ftco-animate">
+                    <div class="categories">
+                        <h3>Categories</h3>
+
+                        @foreach (var item in Model.Categories)
+                        {
+                            <li><a asp-controller="Blogs" asp-action="Index">@item.Name<span>(@Model.BlogsPerCategory.Where(x => x.CategoryId == item.Id).ToList().Count)</span></a></li>
+                        }
+                    </div>
+                </div>
+
+                <div class="sidebar-box ftco-animate">
+                    <h3>Recent Blog</h3>
+
+                    @foreach (var item in Model.RecentBlogs)
+                    {
+                        <div class="block-21 mb-4 d-flex">
+                            <a class="blog-img mr-4" style="background-image: url('/Blogs/ThumbnailImage/@item.ThumbnailId');"></a>
+                            <div class="text">
+                                <h3 class="heading"><a asp-action="Details" asp-route-id="@item.Id">@item.Title</a></h3>
+                                <div class="meta">
+                                    <div><a href="#"><span class="icon-calendar"></span> @item.CreatedOn.ToString("MMMM dd yyyy")</a></div>
+                                    <div><a href="#"><span class="icon-person"></span> @item.Author.Name</a></div>
+                                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
